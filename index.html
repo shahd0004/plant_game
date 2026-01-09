@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>رحلة النبتة مع الدواء 🌱</title>
+<style>
+body {
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  background-color: #fff8f0;
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.5s ease;
+}
+
+.section {
+  background-color: #d0f0c0;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  max-width: 700px;
+  transition: background-color 0.5s ease;
+}
+
+.section h2 {
+  color: #2e7d32;
+  font-size: 1.8em;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-top: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1b4d20;
+  transform: scale(1.05);
+}
+
+#plant-image {
+  width: 180px;
+  margin: 10px auto;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+p, li {
+  font-size: 1.1em;
+}
+
+ul {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.contact {
+  background-color: #ffe4b5;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<!-- 1️⃣ رسالة ترحيبية -->
+<div class="section">
+  <h2>🌟 مرحبًا بك!</h2>
+  <p>أهلاً بك في رحلة العناية بنفسك! 💛 كل خطوة مهمة، ونحن معك 🌱✨</p>
+  <p>دعنا نكبر نبتتك معًا كل يوم! 🌿🎉</p>
+</div>
+
+<!-- 2️⃣ النبتة التفاعلية -->
+<div class="section">
+  <h2>🌱 نبتتك التفاعلية!</h2>
+  <p>كل يوم تأخذ فيه الدواء، النبتة تكبر وتتلوّن وتظهر أشكال جميلة ✨🌸</p>
+  <img id="plant-image" src="plant1.png" alt="نبتة صغيرة">
+  <p>اليوم: <span id="day-count">1</span>/90</p>
+  <button onclick="growPlant()">أخذت الدواء اليوم 🌱</button>
+  <p id="plant-growth-text"></p>
+</div>
+
+<script>
+let day = 1;
+let stage = 1;
+const maxStage = 6; // عندك 6 صور
+const colors = ["#fff8f0","#f0fff0","#fff0f5","#f0f8ff","#ffe4e1","#f3e5f5"];
+const emojis = ["✨","🌸","🌈","💖","🌞","🌻"];
+
+function growPlant() {
+  if(day < 90) {
+    day++;
+    document.getElementById("day-count").innerText = day;
+
+    if(day % 15 === 0 && stage < maxStage) {
+      stage++;
+      document.getElementById("plant-image").src = "plant" + stage + ".png";
+      document.body.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      document.getElementById("plant-growth-text").innerText = "نبتتك تتألق " + emojis[Math.floor(Math.random()*emojis.length)] + "💚";
+      document.getElementById("plant-image").style.transform = "rotate(" + (Math.random()*20-10) + "deg) scale(1." + (Math.floor(Math.random()*5)+1) + ")";
+      document.getElementById("plant-image").style.filter = "hue-rotate(" + Math.floor(Math.random()*360) + "deg)";
+    }
+
+    if(day === 90) {
+      document.getElementById("plant-growth-text").innerText = "ممتاز! نبتتك الآن مكتملة 🌳💚🎉";
+    }
+  }
+}
+</script>
+
+<!-- 3️⃣ كيف يعمل الدواء -->
+<div class="section">
+  <h2>🧠 كيف يعمل الدواء</h2>
+  <p><strong>Tryptizol®</strong> يساعد على تحسين المزاج والتوازن العاطفي 🌸</p>
+  <p>يدعم السيروتونين في الدماغ ليجعل يومك أكثر هدوءًا واستقرارًا 💚</p>
+</div>
+
+<!-- 4️⃣ الآثار الجانبية -->
+<div class="section">
+  <h2>🌿 الآثار الجانبية الشائعة وكيفية التخفيف منها</h2>
+  <p>💦 <strong>جفاف الفم:</strong> اشرب ماء كثير 💧، امضغ علكة 🍬</p>
+  <p>😴 <strong>النعاس أو التعب:</strong> تناول الدواء مساءً 🌙، استرح عند الحاجة 🛏</p>
+  <p>🍽 <strong>اضطراب المعدة:</strong> وجبات خفيفة 🥗، شرب ماء 💧، أضف فواكه 🍎</p>
+  <p>👁 <strong>رؤية ضبابية:</strong> مؤقتة 👓، تحدث مع طبيبك إذا زادت</p>
+  <p>⚖️ <strong>تغير الوزن:</strong> نظام غذائي متوازن 🍽️، نشاط بدني 🏃‍♂️</p>
+</div>
+
+<!-- 5️⃣ تفاعل الدواء -->
+<div class="section">
+  <h2>🍏 تفاعل الدواء مع الطعام والأدوية</h2>
+  <ul>
+    <li>تجنب الكحول 🍷❌</li>
+    <li>أخبر طبيبك أو الصيدلي عن كل الأدوية 💊</li>
+    <li>بعض الأدوية تحتاج حذر: مضادات اكتئاب أخرى، مسكنات قوية، أدوية الصداع النصفي، أدوية البرد المحتوية على Dextromethorphan أو Pseudoephedrine</li>
+  </ul>
+</div>
+
+<!-- 6️⃣ الدعم النفسي -->
+<div class="section">
+  <h2>💚 الدعم النفسي</h2>
+  <p>تذكر، أنت لست وحدك! 🤗 يمكنك التواصل مع جلسات الدعم النفسي عن بُعد على هذه الأرقام:</p>
+  <div class="contact">
+    📞 079-123-4567<br>
+    📞 079-234-5678<br>
+    📞 079-345-6789
+  </div>
+  <p>هذه الجلسات تساعدك على الشعور بالراحة والدعم العاطفي 🌸💛</p>
+</div>
+
+<!-- 7️⃣ تذكير لطيف -->
+<div class="section">
+  <h2>🌈 تذكير لطيف جدًا</h2>
+  <p>✨ التحسن يحتاج وقت ⏳</p>
+  <p>✨ كل يوم تكبر فيه النبتة هو خطوة نجاح لك 🌱🌿🌳</p>
+  <p>✨ اطلب المساعدة عند الحاجة 💖</p>
+  <p>✨ كل خطوة صغيرة تستحق الاحتفال 🎉</p>
+</div>
+
+<!-- 8️⃣ الفيديو -->
+<div class="section">
+  <h2>🎥 فيديو توضيحي</h2>
+  <video width="600" autoplay muted loop controls>
+    <source src="video.mp4" type="video/mp4">
+    المتصفح لا يدعم عرض الفيديو. (تأكد من وجود ملف video.mp4 في نفس المجلد)
+  </video>
+</div>
+
+</body>
+</html>
